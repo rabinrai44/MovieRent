@@ -1,29 +1,41 @@
 ﻿using MovieRent.Models;
 using MovieRent.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MovieRent.Controllers
 {
     public class MoviesController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies.Include("Genre").ToList();
 
-           
             return View(movies);
         }
 
-        private IEnumerable<Movie> GetMovies()
+        public ActionResult Details(int id)
         {
-            return new List<Movie>
-            {
-                new Movie {Id = 1, Name = "Shrek!" },
-                new Movie {Id = 2, Name = "The Crazy Man" },
-                new Movie {Id = 3, Name = "The Final Destination" }
-            };
+            var movie = _context.Movies.Include("Genre").FirstOrDefault(c => c.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+                        
+            return View(movie);
         }
 
         // GET: Movie/Random
