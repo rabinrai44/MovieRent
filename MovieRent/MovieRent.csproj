@@ -244,9 +244,22 @@
     <Compile Include="Migrations\201809272028354_PopulateDateToCustomers.Designer.cs">
       <DependentUpon>201809272028354_PopulateDateToCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809272045055_AddMovie.cs" />
+    <Compile Include="Migrations\201809272045055_AddMovie.Designer.cs">
+      <DependentUpon>201809272045055_AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809272103404_AddMovie1.cs" />
+    <Compile Include="Migrations\201809272103404_AddMovie1.Designer.cs">
+      <DependentUpon>201809272103404_AddMovie1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809272106300_PopulateMovies.cs" />
+    <Compile Include="Migrations\201809272106300_PopulateMovies.Designer.cs">
+      <DependentUpon>201809272106300_PopulateMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -402,6 +415,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809272028354_PopulateDateToCustomers.resx">
       <DependentUpon>201809272028354_PopulateDateToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809272045055_AddMovie.resx">
+      <DependentUpon>201809272045055_AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809272103404_AddMovie1.resx">
+      <DependentUpon>201809272103404_AddMovie1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809272106300_PopulateMovies.resx">
+      <DependentUpon>201809272106300_PopulateMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
