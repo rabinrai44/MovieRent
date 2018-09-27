@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MovieRent.Models
 {
@@ -15,5 +16,7 @@ namespace MovieRent.Models
         public MembershipType MembershipType { get; set; }
 
         public byte MembershipTypeId { get; set; }
+
+        public DateTime? BirthDate { get; set; }
     }
 }
