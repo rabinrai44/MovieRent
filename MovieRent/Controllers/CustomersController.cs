@@ -34,6 +34,7 @@ namespace MovieRent.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             // Validation form 
