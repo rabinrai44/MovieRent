@@ -19,6 +19,11 @@ namespace MovieRent.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
         // GET: Customer
         public ActionResult Index()
         {
