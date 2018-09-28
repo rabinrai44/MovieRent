@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MovieRent.ViewModels
 {
-    public class NewCustomerViewModel
+    public class CustomerFormViewModel
     {
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
 
