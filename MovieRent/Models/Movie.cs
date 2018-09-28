@@ -11,10 +11,13 @@ namespace MovieRent.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Required]
         public Genre Genre { get; set; }
+
+        [Required]
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
+        [Display(Name = "Released Date")]
         public DateTime ReleaseDate { get; set; }
 
         public DateTime AddedDate { get; set; }
