@@ -15,8 +15,6 @@ namespace MovieRent.ViewModels
         [StringLength(255)]
         public string Name { get; set; }
 
-        public Genre Genre { get; set; }
-
         [Required]
         [Display(Name = "Genre")]
         public byte? GenreId { get; set; }
@@ -28,7 +26,7 @@ namespace MovieRent.ViewModels
         [Range(1, 20)]
         [Display(Name = "Number in Stock")]
         [Required]
-        public byte NumberInStock { get; set; }
+        public byte? NumberInStock { get; set; }
 
         public string Title
         {
