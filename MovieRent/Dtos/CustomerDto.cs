@@ -1,5 +1,4 @@
-﻿using MovieRent.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieRent.Dtos
@@ -16,7 +15,7 @@ namespace MovieRent.Dtos
 
         public byte MembershipTypeId { get; set; }
 
-        [Min18YearsIfMember]
+        //[Min18YearsIfMember]
         public DateTime? BirthDate { get; set; }
     }
 }
