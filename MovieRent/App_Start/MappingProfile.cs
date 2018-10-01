@@ -14,8 +14,17 @@ namespace MovieRent.App_Start
         /// </summary>
         public MappingProfile()
         {
-            Mapper.CreateMap<Customer, CustomerDto > ();
-            Mapper.CreateMap<CustomerDto, Customer > ();
+            // Domain to Dto
+            Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<Movie, MovieDto>();
+
+            // Dto to Domain
+            // Id is the key property for the Movie and Customer class, and a key property should not be changed.
+            // To resolve this, Tell AutoMapper to ignore id during mapping of a MovieDto to Movie or CustomerDto to Customer.
+            Mapper.CreateMap<CustomerDto, Customer>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
+            Mapper.CreateMap<MovieDto, Movie>()
+                .ForMember(m => m.Id, opt => opt.Ignore());
         }
     }
 }
