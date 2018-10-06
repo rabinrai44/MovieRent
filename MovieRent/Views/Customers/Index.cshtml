@@ -43,7 +43,15 @@ else
     <script>
 
         $(document).ready(function () {
-            $("#customers .js-delete").on("click", function () {
+            /**
+             * The way were handling the click event of our buttons is a bit inefficient,
+             * so if you have 20 or more customers on this page for each customer we are going to have a delete button and for each delete button you are going
+             * to have a seperate handler function in the memory and you can imagine the more customers we have the more memory we are going to consume that we can change the selector to
+             * only customers table and then provide a filter as the second argument of the on method js-delete $("#customers").on("click", ".js-delete", function(){})
+             * that means no matter how many customer you have only one click handler for all delete buttons. Because in this example our handler is hooked to this selector and
+             * obviously we have only one element on this page that matches the selector the table with the ID customers.
+             */
+            $("#customers").on("click", ".js-delete", function () {
 
                 var button = $(this);
 
