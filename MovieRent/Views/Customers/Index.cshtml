@@ -9,41 +9,46 @@
     @Html.ActionLink("New Customer", "New", "Customers", null, new { @class = "btn btn-success" })
 </p>
 
-@if (!Model.Any())
-{
-    <p>We don't have any customer yet.</p>
-}
-else
-{
- <table id="customers" class="table table-bordered table-hover">
-     <thead>
-         <tr>
-             <th>Customer</th>
-             <th>Membership Type</th>
-             <th>Delete</th>
-         </tr>
-     </thead>
-     <tbody>
-         @foreach (var customer in Model)
-         {
-             <tr>
-                 <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
-                 <td>@customer.MembershipType.Name</td>
-                 <td>
-                     <button data-customer-id="@customer.Id" class="btn btn-danger btn-sm js-delete">Delete</button>
-                 </td>
-             </tr>
-         }
-     </tbody>
- </table>   
-}
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts
 {
     <script>
 
         $(document).ready(function () {
-            $("#customers").DataTable();
+            $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-danger btn-sm js-delete' data-customer-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
             /**
              * The way were handling the click event of our buttons is a bit inefficient,
              * so if you have 20 or more customers on this page for each customer we are going to have a delete button and for each delete button you are going
@@ -67,9 +72,9 @@ else
                         });
                     }
                 });
-               
+
             });
         });
 
     </script>
-    }
+}
