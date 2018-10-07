@@ -24,9 +24,9 @@ namespace MovieRent.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include("Genre").ToList();
+            //var movies = _context.Movies.Include("Genre").ToList();
 
-            return View(movies);
+            return View(/*movies*/);
         }
 
         public ActionResult Details(int id)
