@@ -24,9 +24,11 @@ namespace MovieRent.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            //var movies = _context.Movies.Include("Genre").ToList();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            else
+                return View("ReadOnlyList");
 
-            return View(/*movies*/);
         }
 
         public ActionResult Details(int id)
@@ -39,6 +41,7 @@ namespace MovieRent.Controllers
             return View(movie);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
