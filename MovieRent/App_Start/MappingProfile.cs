@@ -17,6 +17,7 @@ namespace MovieRent.App_Start
             // Domain to Dto
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<Movie, MovieDto>();
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
             // Dto to Domain
             // Id is the key property for the Movie and Customer class, and a key property should not be changed.
