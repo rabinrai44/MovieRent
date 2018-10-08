@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using MovieRent.Models;
+using Microsoft.Owin.Security.Google;
 using Owin;
-using System;
+using MovieRent.Models;
 
 namespace MovieRent
 {
@@ -53,9 +54,9 @@ namespace MovieRent
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "1406337626164606",
-               appSecret: "f5eb086aacf46b06573ba07b31b876c5");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
