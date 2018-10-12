@@ -6,6 +6,6 @@ namespace MovieRent.Dtos
     {
         public int CustomerId { get; set; }
 
-        public List<int> MoviIds { get; set; }
+        public List<int> MovieIds { get; set; }
     }
 }
