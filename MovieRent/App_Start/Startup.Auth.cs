@@ -5,6 +5,7 @@ using Microsoft.Owin.Security.Cookies;
 using MovieRent.Models;
 using Owin;
 using System;
+using System.Configuration;
 
 namespace MovieRent
 {
@@ -54,8 +55,8 @@ namespace MovieRent
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "1406337626164606",
-               appSecret: "f5eb086aacf46b06573ba07b31b876c5");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
